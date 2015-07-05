@@ -7,4 +7,8 @@ def events():
     events = r.json()['events']
     return template('events', events=events)
 
-run(host='localhost', port=8080, debug=True, reloader=True)
+from os import environ
+if environ.get("IS_HEROKU"):
+    run(server='gunicorn', host='0.0.0.0', port=int(environ.get("PORT", 5000)))
+else:
+    run(host='localhost', port=8080, debug=True, reloader=True)
