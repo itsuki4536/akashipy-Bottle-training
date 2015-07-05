@@ -3,7 +3,7 @@ import requests
 
 @route('/')
 def home():
-    return '<h1>こんにちは</h1>'
+    return template('home', home=home)
 
 @route('/events')
 def events():
