@@ -5,8 +5,9 @@
     <title></title>
 </head>
 <body>
-    <h1>{{event['title']}}</h1>
-    <p>{{event['place']}}</p>
-    <p>{{event['started_at']}}</p>
+    <h1>勉強会の一覧</h1>
+    % for event in events:
+        <p>{{ event['title'] }}</p>
+    % end
 </body>
 </html>
