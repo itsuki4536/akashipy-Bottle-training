@@ -1,6 +1,10 @@
 from bottle import route, run, template, request
 import requests
 
+@route('/')
+def home():
+    return '<h1>こんにちは</h1>'
+
 @route('/events')
 def events():
     r = requests.get('http://connpass.com/api/v1/event/?keyword=' + request.query.keyword)
